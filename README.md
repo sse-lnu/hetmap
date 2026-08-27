@@ -14,7 +14,7 @@ Each system is modeled as a heterogeneous graph:
 - **Nodes** are folders, files, and members (one summarized member node per file, aggregating its methods/fields/constructors).
 - **Edges** are typed: `parent_of` (folder hierarchy), `contains` (folder → file), `belongs_to` (file → member), and typed static dependencies (`Call`, `Import`, `Extend`, `Use`, ...).
 
-![Heterogeneous software Graph](hetmap_schema.jpg)
+<img src="hetmap_schema.jpg" alt="Heterogeneous software Graph" width="660" />
 
 - **Node features** come from one of three representations, compared independently:
   - **N2V** — Node2Vec structural embeddings trained on the file dependency graph alone.
