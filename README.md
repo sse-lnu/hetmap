@@ -15,7 +15,7 @@ Each system is modeled as a heterogeneous graph:
 - **Edges** are typed: `parent_of` (folder hierarchy), `contains` (folder → file), `belongs_to` (file → member), and typed static dependencies (`Call`, `Import`, `Extend`, `Use`, ...).
 - **Node features** come from one of three representations, compared independently:
   - **N2V** — Node2Vec structural embeddings trained on the file dependency graph alone.
-  - **W2V** — Word2Vec lexical embeddings over identifier tokens (file/member names, camelCase/snake_case-split).
+  - **W2V** — Word2Vec lexical embeddings over identifier tokens (file/member names).
   - **UXC** — UniXcoder contextual embeddings, in a zero-shot (frozen) and a dependency-guided fine-tuned variant.
 
 HGT conditions attention and message passing on source type, edge type, and target type, then runs an iterative self-training loop: warm up on a labeled seed set, then repeatedly promote high-confidence predictions to pseudo-labels and retrain. The feature-only MLP uses the same node features with no graph structure, isolating what each representation contributes before message passing is introduced.
