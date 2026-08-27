@@ -5,7 +5,7 @@ from typing import Dict
 
 import numpy as np
 
-from hetmap.dataset.registry import load_datasets
+from hetmap.process_data.registry import load_datasets
 from hetmap.experiments.config import ExperimentConfig
 from hetmap.node_features.unixcoder.loader import load_embeddings
 from .hetero_data import UniXcoderHeterogeneousData

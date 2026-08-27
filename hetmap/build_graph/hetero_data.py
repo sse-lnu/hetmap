@@ -11,7 +11,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import LabelEncoder
 from torch_geometric.data import HeteroData
 
-from hetmap.dataset.preprocessing import Preprocessor
+from hetmap.process_data.preprocessing import Preprocessor
 from hetmap.experiments.config import GraphConfig
 from hetmap.node_features.w2v import build_w2v_features
 

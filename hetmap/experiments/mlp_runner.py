@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-from hetmap.dataset.registry import load_datasets
+from hetmap.process_data.registry import load_datasets
 from hetmap.experiments.config import MLPExperimentConfig, GraphConfig
 from hetmap.node_features.unixcoder.loader import load_embeddings
 from hetmap.training.mlp_trainer import FileLevelDataset, few_shot_learning_mlp

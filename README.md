@@ -25,7 +25,7 @@ HGT conditions attention and message passing on source type, edge type, and targ
 ```
 HetMap/
 ├── hetmap/
-│   ├── dataset/            # registry.py (dataset → CSV mapping), preprocessing.py (tokenization)
+│   ├── process_data/       # registry.py (dataset → CSV mapping), preprocessing.py (tokenization)
 │   ├── datasets/           # raw per-project CSVs (10 systems)
 │   ├── build_graph/        # heterogeneous graph construction (HeteroData)
 │   ├── node_features/      # W2V / N2V / UniXcoder feature extraction + fine-tuning
@@ -33,10 +33,9 @@ HetMap/
 │   ├── training/            # iterative self-training loop (HGT + MLP)
 │   ├── evaluation/          # F1 / precision / recall helpers
 │   └── experiments/         # config.py, hgt_runner.py, mlp_runner.py
-├── embeddings/              # pre-computed N2V/W2V/UniXcoder embeddings (4 example datasets)
+├── embeddings/              # pre-computed N2V/W2V/UniXcoder embeddings (all systems except Chrome)
 ├── run_experiments.py       # reproduce RQ1 / RQ2 / RQ3
 ├── predict_example.py       # map files with no ground truth
-├── results_analysis.ipynb   # figures/tables from results/ (needs matplotlib/seaborn/scipy)
 └── requirements.txt
 ```
 
@@ -149,6 +148,4 @@ Output files, all under `results/RQ{1,2,3}/...`:
 
 ## Data
 
-Raw CSVs for 9 of the 10 paper systems (A.UML, C.Img, JabRef, Lucene, SH-3D, TeamMates, Bash, HDF, HDC) are bundled in `hetmap/datasets/` — these are small dependency/metadata tables, not embeddings or source code, so every one of these 9 systems can be used out of the box for N2V and W2V (which train directly from these CSVs). **Chrome's CSVs are not bundled** — at 11M LoC / 284k dependencies they exceed GitHub's file size limits (72MB/140MB); fetch `chromium.csv`/`chromium_deps.csv` from GAER (below) and place them in `hetmap/datasets/` to use Chrome.
-
-`embeddings/{n2v_emb,w2v_emb,unixcoder_emb}/` ships **pre-computed** embeddings for 4 example systems only — **SH-3D, A.UML, Lucene, C.Img** — copied into `data/` automatically the first time `run_experiments.py` runs, so those 4 need no training/encoding step at all. For the other 6 systems, N2V/W2V embeddings are trained on first use from the bundled CSVs (cached afterward); UniXcoder embeddings require the source repos themselves (not bundled) and running `hetmap/node_features/unixcoder_emb.py` — the full set of source repos for all 10 systems is available via the [GAER repository](https://github.com/sse-lnu/GAER).
+Raw CSVs and pre-computed embeddings are bundled for all 10 paper systems **except Chrome** (its raw data alone exceeds GitHub's file size limits). For Chrome, or the systems' source repos, see the [GAER repository](https://github.com/sse-lnu/GAER).

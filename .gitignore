@@ -10,8 +10,10 @@ __pycache__/
 # ── Generated data / experiment output (regenerable from code + datasets) ──
 data/
 !embeddings/
-results/*
-!results/collect_results.py
+results/
+
+# ── Paper-internal working files (not part of the published tool) ─────────
+results_analysis.ipynb
 
 # ── Bundled model checkpoint (fetch separately, see README) ────────────────
 hetmap/node_features/unixcoder/unixcoder-base/

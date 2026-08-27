@@ -24,14 +24,14 @@ import argparse
 import numpy as np
 
 from hetmap.build_graph.hetero_data import HeterogeneousData
-from hetmap.dataset.registry import load_datasets
+from hetmap.process_data.registry import load_datasets
 from hetmap.experiments.config import GraphConfig, W2V_TRAINING
 from hetmap.training.hgt_trainer import few_shot_learning
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dataset", default="SH-3D", help="HetMap dataset name (see hetmap/dataset/registry.py).")
+    ap.add_argument("--dataset", default="SH-3D", help="HetMap dataset name (see hetmap/process_data/registry.py).")
     ap.add_argument("--unlabeled-frac", type=float, default=0.3,
                     help="Fraction of files to treat as having no ground truth (simulated).")
     ap.add_argument("--seed", type=int, default=42)

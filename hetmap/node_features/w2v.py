@@ -20,7 +20,7 @@ def load_or_train_w2v_file_embs(
     if emb_path.exists() and keys_path.exists():
         print(f"  [{name}] W2V file embs cached — loading")
         return np.load(emb_path), keys_path.read_text(encoding="utf-8").splitlines()
-    from hetmap.dataset.preprocessing import Preprocessor
+    from hetmap.process_data.preprocessing import Preprocessor
     prep = Preprocessor(df.copy(), df_dep.copy(), graph_cfg)
     prep.preprocess()
     file_nodes = prep.df_files["File"].dropna().astype(str).drop_duplicates().tolist()
