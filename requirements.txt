@@ -1,0 +1,23 @@
+# Core
+torch>=2.0
+torch-geometric>=2.4
+numpy
+pandas
+scikit-learn
+
+# Node2Vec (structural features)
+networkx
+node2vec
+
+# Word2Vec (lexical features)
+gensim
+
+# UniXcoder (contextual features) + fine-tuning
+transformers>=4.30
+tree-sitter>=0.21
+tree-sitter-java>=0.21
+
+# Optional: only needed to regenerate results_analysis.ipynb's figures/tables
+# matplotlib
+# seaborn
+# scipy

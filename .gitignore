@@ -1,0 +1,23 @@
+# ── Python / environment ──────────────────────────────────────────────────
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.vscode/
+.ipynb_checkpoints/
+
+# ── Generated data / experiment output (regenerable from code + datasets) ──
+data/
+!embeddings/
+results/*
+!results/collect_results.py
+
+# ── Bundled model checkpoint (fetch separately, see README) ────────────────
+hetmap/node_features/unixcoder/unixcoder-base/
+hetmap/node_features/unixcoder/.cache/
+
+# ── Chrome raw CSVs exceed GitHub's file size limits (72MB / 140MB) ────────
+# Fetch from GAER instead (see README's Data section).
+hetmap/datasets/chromium.csv
+hetmap/datasets/chromium_deps.csv
